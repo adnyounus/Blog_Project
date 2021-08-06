@@ -1,0 +1,11 @@
+* {
+	font-family: "Open Sans" !important;
+}
+
+.postauthor {
+	display: block;
+	text-align: right;
+	width: 100%;
+	padding-bottom: 5px;
+	font-size: 0.9em;
+}

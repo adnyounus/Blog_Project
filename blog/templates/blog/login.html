@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content1 %}
+<div class="ui text container" style="padding: 10%; max-width: 400px;">
+<h1 style="text-align: center;">CSE-465 Blog page</h1>
+<h3 style="text-align: center;">Please Login to continue</h3>
+{% for m in messages %}
+<div class="ui {{ m.tags }} message">
+<p>{{ m }}</p>
+</div>
+{% endfor %}
+<form class="ui form" action="/login-verify/" method="POST">
+	{% csrf_token %}
+	<div class="field">
+	<label>Username</label>
+	<input type="text" name="username" placeholder="Username">
+	</div>
+	<div class="field">
+	<label>Password</label>
+	<input type="password" name="password"  placeholder="Password">
+	</div>
+	<button class="ui large fluid primary button" type="submit">Login</button>
+</form>
+</div>
+{% endblock content1 %}

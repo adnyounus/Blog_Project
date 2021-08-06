@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content1 %}
+<div class="ui text container" style="padding: 10%; max-width: 400px;">
+<h1 style="text-align: center;">Edit an existing Post</h1>
+<!-- <h3 style="text-align: center;">Please Login to continue</h3> -->
+<form class="ui form" action="/edit-post/" method="POST">
+	{% csrf_token %}
+	<div class="field">
+	<label>Title</label>
+	<input type="text" name="id" value="{{ id }}" hidden required>
+	<input type="text" name="title" placeholder="Post Title" value="{{ title }}" required>
+	</div>
+	<div class="field">
+	<label>Content</label>
+	<textarea name="content" placeholder="Post Content" required>{{ content }}</textarea>
+	</div>
+	<button class="ui large fluid primary button" type="submit">Update Post</button>
+	<a href="{% url 'blog-home' %}" style="display: block; padding: 10px; text-align: center;">Back</a>
+</form>
+</div>
+{% endblock content1 %}
